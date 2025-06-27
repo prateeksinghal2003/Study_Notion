@@ -31,7 +31,7 @@ app.use(
 	cors({
 
         //request coming from frontend 
-		origin:"http://localhost:3000",
+		origin: ["http://localhost:3000", "https://study-notion-frontend-4.vercel.app"],
 		credentials:true,
 	})
 )
