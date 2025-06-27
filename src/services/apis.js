@@ -1,24 +1,24 @@
-const BASE_URL = "http://localhost:4000/api/v1"
+const BASE_URL = "https://study-notion-backend-mz71.onrender.com/api/v1"
 
 // AUTH ENDPOINTS
 export const endpoints = {
 
-  // SENDOTP_API: BASE_URL + "/auth/sendotp",
-  SENDOTP_API: "http://localhost:4000/api/v1/auth/sendotp",
+   SENDOTP_API: BASE_URL + "/auth/sendotp",
+  //SENDOTP_API: "http://localhost:4000/api/v1/auth/sendotp",
 
 
-  //SIGNUP_API: BASE_URL + "/auth/signup",
-  SIGNUP_API: "http://localhost:4000/api/v1/auth/signup",
+  SIGNUP_API: BASE_URL + "/auth/signup",
+  //SIGNUP_API: "http://localhost:4000/api/v1/auth/signup",
 
-  //LOGIN_API: BASE_URL + "/auth/login",
-  LOGIN_API: "http://localhost:4000/api/v1/auth/login",
+  LOGIN_API: BASE_URL + "/auth/login",
+  //LOGIN_API: "http://localhost:4000/api/v1/auth/login",
   
-  // RESETPASSTOKEN_API: BASE_URL + "/auth/reset-password-token",
-   RESETPASSTOKEN_API:"http://localhost:4000/api/v1/auth/reset-password-token",
+   RESETPASSTOKEN_API: BASE_URL + "/auth/reset-password-token",
+  // RESETPASSTOKEN_API:"http://localhost:4000/api/v1/auth/reset-password-token",
 
 
-  //RESETPASSWORD_API: BASE_URL + "/auth/reset-password",
-  RESETPASSWORD_API: "http://localhost:4000/api/v1/auth/reset-password",
+  RESETPASSWORD_API: BASE_URL + "/auth/reset-password",
+  //RESETPASSWORD_API: "http://localhost:4000/api/v1/auth/reset-password",
 }
 
 
@@ -46,12 +46,12 @@ export const courseEndpoints = {
   COURSE_DETAILS_API: BASE_URL + "/course/getCourseDetails",
   EDIT_COURSE_API: BASE_URL + "/course/editCourse",
 
-  //COURSE_CATEGORIES_API: BASE_URL + "/course/showAllCategories",
-  COURSE_CATEGORIES_API: "http://localhost:4000/api/v1/course/showAllCategories",
+  COURSE_CATEGORIES_API: BASE_URL + "/course/showAllCategories",
+  //COURSE_CATEGORIES_API: "http://localhost:4000/api/v1/course/showAllCategories",
 
 
-  // CREATE_COURSE_API: BASE_URL + "/course/createCourse",
-  CREATE_COURSE_API:"http://localhost:4000/api/v1/course/createCourse",
+   CREATE_COURSE_API: BASE_URL + "/course/createCourse",
+ // CREATE_COURSE_API:"http://localhost:4000/api/v1/course/createCourse",
 
   CREATE_SECTION_API: BASE_URL + "/course/addSection",
   CREATE_SUBSECTION_API: BASE_URL + "/course/addSubSection",
