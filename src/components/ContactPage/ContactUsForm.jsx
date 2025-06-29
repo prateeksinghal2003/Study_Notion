@@ -311,6 +311,8 @@ const ContactUsForm = () => {
                Strings only made of numbers
                With length between 10 and 12 characters */}
 
+               {/* Subtracts 90px from the full width of the parent. */}
+
           <div className="flex w-[calc(100%-90px)] flex-col gap-2">
             <input
               type="number"

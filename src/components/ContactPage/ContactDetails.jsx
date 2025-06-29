@@ -1,4 +1,6 @@
 import React from "react"
+
+//The * means import everything (all exports) from the react-icons/bi module and put them in an object called Icon1.
 import * as Icon1 from "react-icons/bi"
 import * as Icon3 from "react-icons/hi2"
 import * as Icon2 from "react-icons/io5"
@@ -28,7 +30,11 @@ const contactDetails = [
 const ContactDetails = () => {
   return (
     <div className="flex flex-col gap-6 rounded-xl bg-richblack-800 p-4 lg:p-6">
-      {contactDetails.map((ele, i) => {
+      {
+        contactDetails.map((ele, i) => {
+
+         {/* finding from each set  
+         on first iteration Icon will be set to  HiChatBubbleLeftRight*/}
         let Icon = Icon1[ele.icon] || Icon2[ele.icon] || Icon3[ele.icon]
         return (
           <div

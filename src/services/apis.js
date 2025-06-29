@@ -4,7 +4,7 @@ const BASE_URL = "https://study-notion-backend-mz71.onrender.com/api/v1"
 export const endpoints = {
 
    SENDOTP_API: BASE_URL + "/auth/sendotp",
-  //SENDOTP_API: "http://localhost:4000/api/v1/auth/sendotp",
+   //SENDOTP_API: "http://localhost:4000/api/v1/auth/sendotp",
 
 
   SIGNUP_API: BASE_URL + "/auth/signup",
