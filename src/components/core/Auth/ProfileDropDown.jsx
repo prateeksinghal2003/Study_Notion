@@ -136,7 +136,7 @@ The inner div (modal) uses e.stopPropagation() so clicks inside it don’t close
 //     navigate("/")
 //   }
 
-//   so dispatch has  dispatch (    (dispatch) => {
+//   so dispatch has-->  dispatch (    (dispatch) => {
 //     dispatch(setToken(null))
 //     dispatch(setUser(null))
 //     dispatch(resetCart())

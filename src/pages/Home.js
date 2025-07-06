@@ -285,6 +285,7 @@ The inner <div> uses group-hover:bg-richblack-900.
            >
              <source src={Banner} type="video/mp4" />
            </video>
+         
          </div>
 
 
