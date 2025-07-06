@@ -1,6 +1,20 @@
 const express = require("express");
 const app = express();
 
+const cors = require("cors");
+
+
+
+app.use(
+	cors({
+
+        //request coming from frontend 
+		origin: "*",
+		credentials:true,
+	})
+)
+app.options("*", cors());
+
 const userRoutes = require("./routes/User");
 const profileRoutes = require("./routes/Profile");
 const paymentRoutes = require("./routes/Payments");
@@ -12,7 +26,7 @@ const cookieParser = require("cookie-parser");
 
 
 //whatever request frontend enters backhand handles it 
-const cors = require("cors");
+
 const {cloudinaryConnect } = require("./config/cloudinary");
 const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
@@ -27,14 +41,7 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(
-	cors({
 
-        //request coming from frontend 
-		origin: "*",
-		credentials:true,
-	})
-)
 
 app.use(
 	fileUpload({
