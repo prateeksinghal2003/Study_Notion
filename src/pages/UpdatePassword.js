@@ -34,6 +34,13 @@ function UpdatePassword() {
   const handleOnSubmit = (e) => {
 
     e.preventDefault()
+
+// location.pathname gives the current path (e.g. /update-password/4e850d7993fc213531c19984ea42dec196fb6195)
+// .split("/") turns it into an array:
+// ["", "update-password", "4e850d7993fc213531c19984ea42dec196fb6195"]
+// .at(-1) gets the last element of the array:
+// "4e850d7993fc213531c19984ea42dec196fb6195"
+
     const token = location.pathname.split("/").at(-1)
 
     //backend pe call jayegi
@@ -44,7 +51,8 @@ function UpdatePassword() {
   return (
     <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
 
-      {loading ? (
+      {
+        loading ? (
         <div className="spinner"></div>
       ) 
       :
@@ -84,11 +92,12 @@ function UpdatePassword() {
                 className="absolute right-3 top-[38px] z-[10] cursor-pointer"
               >
                 {showPassword ? (
-                  <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+                  <AiOutlineEye fontSize={24} fill="#AFB2BF" />
                 )
                  : 
                  (
-                  <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+                 
+                   <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
                 )}
               </span>
          </label>
@@ -118,12 +127,13 @@ function UpdatePassword() {
                 className="absolute right-3 top-[38px] z-[10] cursor-pointer"
               >
                 {
-                    showConfirmPassword ? (
-                  <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+                    showConfirmPassword ? ( <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+                 
                 ) 
                 : 
                 (
-                  <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+                 
+                   <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
                 )
               }
 

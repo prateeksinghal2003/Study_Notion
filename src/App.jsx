@@ -76,6 +76,7 @@ function App()
           }
         /> 
 
+{/* the route is hit because of /:id, which allows the dynamic ID value to be matched */}
         <Route
           path="update-password/:id"
           element={

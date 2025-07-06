@@ -135,7 +135,7 @@ exports.resetPassword = async (req, res) => {
 		}
 
 
-        //resetPasswordExpires= currentDate + 5min
+        //resetPasswordExpires= currentDate + 1hr
 
 		if (!(userDetails.resetPasswordExpires > Date.now())) {
 			return res.status(403).json({

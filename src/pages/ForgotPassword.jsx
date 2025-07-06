@@ -26,8 +26,9 @@ function ForgotPassword() {
 
 
   return (
-    <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
-      {loading ? (
+    <div className="flex min-h-[calc(100vh-3.5rem)]  mx-auto items-center">
+      {
+        loading ? (
         <div className="spinner"></div>
       ) 
       :
@@ -94,11 +95,12 @@ function ForgotPassword() {
 
 
           {/* Back to login vala button */}
-          <div className="mt-6 flex items-center justify-between">
+          <div className="mt-6 ">
             <Link to="/login">
-              <p className="flex items-center gap-x-2 text-richblack-5">
+              <p  className="flex items-center gap-x-2 text-richblack-5">
                 <BiArrowBack /> Back To Login
               </p>
+             
             </Link>
           </div>
 
