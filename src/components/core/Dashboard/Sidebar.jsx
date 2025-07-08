@@ -10,10 +10,11 @@ import SidebarLink from "./SidebarLink"
 
 export default function Sidebar() {
   const { user, loading: profileLoading } = useSelector(
-    (state) => state.profile
-  )
+    (state) => state.profile )
+
   const { loading: authLoading } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
+  
   const navigate = useNavigate()
 
   // to keep track of confirmation modal
@@ -38,7 +39,7 @@ export default function Sidebar() {
             sidebarLinks.map((link) => {
 
 
-            //does not render anyhtinh if type not equal
+            //does not render anything  if type not equal
             if (link.type && user?.accountType !== link.type) return null
 
             return (

@@ -203,7 +203,8 @@ function Navbar()
                           <p className="text-center">Loading...</p>
                         ) 
                         :
-                         (subLinks && subLinks.length) ? (
+                         (subLinks && subLinks.length) ? 
+                         (
                           <>
                             {
                               subLinks?.map((subLink, i) => (
@@ -225,7 +226,7 @@ function Navbar()
                         :
                          (
                           <p className="text-center">No Courses Found</p>
-                        )
+                         )
                     }
                       </div>
                     </div>
@@ -266,7 +267,7 @@ function Navbar()
         {/* Login / Signup / Dashboard */}
         {/* yaha jo useSelector se import kiya vo yaha use hoga */}
 
-        <div className="hidden items-center gap-x-4 md:flex">
+        <div className=" items-center gap-x-4 md:flex">
 
         {/* ACCOUNT_TYPE.INSTRUCTOR */}
           {

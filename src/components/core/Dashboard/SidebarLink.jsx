@@ -5,7 +5,17 @@ import { NavLink, matchPath, useLocation } from "react-router-dom"
 import { resetCourseState } from "../../../slices/courseSlice"
 
 export default function SidebarLink({ link, iconName }) {
+
+
+  // Bracket notation allows dynamic property access using a string.
+  // Lets you use a variable or any string to access the property.
+
+  // Icons is an object where each key is iconname .
+  // here,iconName is dynamic which would be one of the key in Icons
+  // so to extract that particular key during each render dynamic extraction has to be performed , which is done by bracket notation
   const Icon = Icons[iconName]
+
+  // now this Icon  becomes a component
 
 
   //agar ye samaj main aayaa ki use location hook kyu use kiya -->good going
@@ -47,3 +57,19 @@ export default function SidebarLink({ link, iconName }) {
 
   )
 }
+
+
+// Same as Link but with extra power for styling active links.
+
+// Adds an active class (or lets you apply styles) if the link matches the current URL.
+
+// Used in sidebars, navbars, tabs, etc.
+
+// in NavLink, the isActive prop is provided by default via a function in the className or style prop.
+
+// <NavLink
+//   to="/about"
+//   className={({ isActive }) => 
+//     isActive ? "text-yellow-500 font-bold" : "text-gray-400"
+//   }
+// />

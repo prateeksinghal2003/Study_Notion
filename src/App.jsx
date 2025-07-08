@@ -41,6 +41,7 @@ function App()
 
    <Routes>
     <Route path="/" element ={<Home/>} ></Route>
+    
     <Route path="catalog/:catalogName" element={<Catalog/>} />
     <Route path="courses/:courseId" element={<CourseDetails/>} />
 
@@ -105,6 +106,17 @@ function App()
           }
         />
 
+{/* 
+This top-level <Route> wraps child routes and provides a layout or guard (like PrivateRoute) for them.
+Since it doesn't handle a specific path directly, no path is needed.
+If a user goes to /dashboard/my-profile, the parent route’s element (i.e., PrivateRoute -> Dashboard) renders first.
+Inside Dashboard, a <Outlet /> should be used where the matched nested child component (like MyProfile, Cart, etc.) should appear.
+It helps:
+Reuse layout components (Dashboard) across multiple dashboard sub-routes. */}
+
+
+
+
        <Route element={
         <PrivateRoute>
           <Dashboard />
@@ -113,8 +125,7 @@ function App()
 
 
 <Route path="dashboard/my-profile" element={<MyProfile />} />
-{/* <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
-<Route path="dashboard/cart" element={<Cart />} /> */}
+
 
       {
         user?.accountType === ACCOUNT_TYPE.STUDENT && (
@@ -150,7 +161,8 @@ function App()
 
 
 <Route path="dashboard/Settings" element={<Settings />} />
-
+{/* Even though Settings is a folder, it has an index.js file, so when you import from ./Settings, React/Node automatically looks for:
+./Settings/index.js */}
 
  
       <Route element={

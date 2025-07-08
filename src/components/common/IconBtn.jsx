@@ -6,7 +6,20 @@ export default function IconBtn({
     outline = false,
     customClasses,
     type,
-  }) {
+  })
+//extra props can be defined and can set to default
+//   The outline prop is typically used as a style toggle between two button variants:
+// Outline style: border-only (no background)
+// Solid style: filled background (default when outline = false)
+
+// customClasses
+// Type: string
+
+// Used to add custom Tailwind classes from the parent.
+// <IconBtn customClasses="bg-red-500 hover:bg-red-600" />
+
+
+  {
     return (
       <button
         disabled={disabled}
