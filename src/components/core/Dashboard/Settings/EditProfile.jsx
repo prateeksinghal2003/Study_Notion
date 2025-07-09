@@ -30,13 +30,18 @@ export default function EditProfile() {
   return (
     <>
       <form onSubmit={handleSubmit(submitProfileForm)}>
+
         {/* Profile Information */}
         <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
+
           <h2 className="text-lg font-semibold text-richblack-5">
             Profile Information
           </h2>
+
           <div className="flex flex-col gap-5 lg:flex-row">
+
             <div className="flex flex-col gap-2 lg:w-[48%]">
+
               <label htmlFor="firstName" className="lable-style">
                 First Name
               </label>
@@ -55,6 +60,7 @@ export default function EditProfile() {
                 </span>
               )}
             </div>
+
             <div className="flex flex-col gap-2 lg:w-[48%]">
               <label htmlFor="lastName" className="lable-style">
                 Last Name
@@ -77,12 +83,16 @@ export default function EditProfile() {
           </div>
 
           <div className="flex flex-col gap-5 lg:flex-row">
+
             <div className="flex flex-col gap-2 lg:w-[48%]">
+
               <label htmlFor="dateOfBirth" className="lable-style">
                 Date of Birth
               </label>
+
               <input
                 type="date"
+                // This renders a calendar-style input where the user can pick a date.
                 name="dateOfBirth"
                 id="dateOfBirth"
                 className="form-style"
@@ -91,6 +101,11 @@ export default function EditProfile() {
                     value: true,
                     message: "Please enter your Date of Birth.",
                   },
+
+//                   new Date() → gets the current date
+// .toISOString() → converts it to a string like 2025-07-09T14:20:00.000Z
+// .split("T")[0] → extracts only the date part: 2025-07-09
+// So it ensures that the user cannot select a future date as their date of birth.
                   max: {
                     value: new Date().toISOString().split("T")[0],
                     message: "Date of Birth cannot be in the future.",
@@ -104,6 +119,7 @@ export default function EditProfile() {
                 </span>
               )}
             </div>
+
             <div className="flex flex-col gap-2 lg:w-[48%]">
               <label htmlFor="gender" className="lable-style">
                 Gender
@@ -130,6 +146,7 @@ export default function EditProfile() {
                 </span>
               )}
             </div>
+
           </div>
 
           <div className="flex flex-col gap-5 lg:flex-row">
@@ -159,6 +176,7 @@ export default function EditProfile() {
                 </span>
               )}
             </div>
+            
             <div className="flex flex-col gap-2 lg:w-[48%]">
               <label htmlFor="about" className="lable-style">
                 About

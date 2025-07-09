@@ -13,7 +13,13 @@ export const apiConnector = (method, url, bodyData, headers, params) => {
 }
 
 
+//The object you pass to axiosInstance({...}) uses Axios-specific keys, not raw HTTP syntax. Here's how it maps:
 
+// Axios Key	      Purpose (HTTP equivalent)
+// method	        HTTP method (e.g., GET, POST, DELETE)
+// url	            Endpoint URL
+// data	        Request body (used for POST, PUT, etc.)
+// headers	        Custom request headers (e.g., Authorization)
 // Axios is a promise-based HTTP client for JavaScript. It allows you to:
 
 // Send HTTP requests (GET, POST, PUT, DELETE, etc.)

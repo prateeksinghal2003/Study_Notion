@@ -134,20 +134,7 @@ exports.deleteAccount = async (req, res) => {
     })
    
      await CourseProgress.deleteMany({ userId: id })
-    //also update the Course schema because it contains students enrolled key
-    //update many is used because in multiple docs of Course ,same user id can be present 
-    // const updatedCourses = await Course.updateMany(
-		// 	{ studentsEnrolled: id }, // Find courses where studentId exists
-		// 	{ $pull: { studentsEnrolled:id } } // Remove studentId from array
-		// );
-    // if (updatedCourses) {
-    //   return res.status(200).json({
-    //     success: true,
-    //     message: "Students enrolled in courses are updated",
-    //   })
-    // }
-    // await CourseProgress.deleteMany({ userId: id })
-
+    
     
 
 

@@ -129,6 +129,9 @@ const ContactUsForm = () => {
        it contains the id of the input field of which we want to connect
       Connects the label to the input field with the id="firstname".
       So when a user clicks the label, it focuses that input. ==>the cursor appear on that input field
+     
+     
+     
      {/* “This label belongs to the input with ID firstname.” */}
 
 
