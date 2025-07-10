@@ -66,7 +66,7 @@ export default function ProfileDropdown() {
       <div className="flex items-center gap-x-1">
         <img
           src={user?.image}
-          alt={`profile-${user?.firstName}`}
+          alt={`img`}
           className="aspect-square w-[30px] rounded-full object-cover"
         />
         <AiOutlineCaretDown className="text-sm text-richblack-100" />
@@ -93,10 +93,10 @@ The inner div (modal) uses e.stopPropagation() so clicks inside it don’t close
 // divide-richblack-700
 // Sets the color of the divider.
 // richblack-700 is a custom color (defined in Tailwind config).
-// Works with divide-* utilities.
 // overflow-hidden
 // Hides any content that goes outside the element's bounds (both x and y axes).
 // Often used with rounded corners or to prevent scrollbars.
+
           className="absolute top-[118%] right-0 z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-richblack-800"
           ref={ref}
         >

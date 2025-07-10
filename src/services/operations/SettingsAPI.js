@@ -19,6 +19,25 @@ export function updateDisplayPicture(token, formData) {
       const response = await apiConnector(
         "PUT",
         UPDATE_DISPLAY_PICTURE_API,
+
+// What is multipart/form-data?
+// It's a special format used to send files and other form data (like text) to a server.
+
+// 🧠 Imagine this:
+// You're sending a package to a friend that has:
+// 📄 A letter (name = "John")
+// 🖼️ A photo (file = "profile.jpg")
+// You can’t just shove everything into one envelope as plain text — you need to wrap each item separately so your friend knows what’s what.
+// ✅ That’s what multipart/form-data does:
+// It wraps each field (like name, email, file, etc.) in its own section.
+// It's perfect for sending files because:
+// It keeps binary data (like images) untouched.
+// It tells the server:
+// 👉 “This part is a file”
+// 👉 “This part is text”
+// 👉 “Here’s their names and values”
+
+
         formData,
         {
           "Content-Type": "multipart/form-data",
