@@ -261,14 +261,16 @@ exports.getEnrolledCourses = async (req, res) => {
        //You're adding extra info to your data just before you send it to the frontend or API client — but you're not saving that extra info in the database.
 
 
-        userDetails.courses[i].totalDuration = convertSecondsToDuration(
-          totalDurationInSeconds)
+       
+//          console.log(userDetails.courses[i].totalDuration);
 
 
- //on first iteration for j , i have total subsection length for a particular section
+ //on first iteration for j , I have total subsection length for a particular section
         SubsectionLength +=
           userDetails.courses[i].courseContent[j].subSection.length
       }
+         userDetails.courses[i].totalDuration = convertSecondsToDuration(
+          totalDurationInSeconds)
 
       let courseProgressCount = await CourseProgress.findOne({
         courseID: userDetails.courses[i]._id,
@@ -310,11 +312,14 @@ exports.getEnrolledCourses = async (req, res) => {
     return res.status(200).json({
       success: true,
       data: userDetails.courses,
+      timeDuration: userDetails.courses[0].totalDuration
+    
     })
   } catch (error) {
     return res.status(500).json({
       success: false,
       message: error.message,
+    
     })
   }
 }

@@ -8,13 +8,14 @@ import { getUserEnrolledCourses } from "../../../services/operations/profileAPI"
 
 export default function EnrolledCourses() {
   const { token } = useSelector((state) => state.auth)
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  
 
   const [enrolledCourses, setEnrolledCourses] = useState(null)
   const getEnrolledCourses = async () => {
     try {
       const res = await getUserEnrolledCourses(token);
-
+      console.log(res);
       setEnrolledCourses(res);
     } catch (error) {
       console.log("Could not fetch enrolled courses.")
@@ -85,26 +86,33 @@ export default function EnrolledCourses() {
 
                 {/* title aur description */} 
                 <div className="flex max-w-xs flex-col gap-2">
+
                   <p className="font-semibold">{course.courseName}</p>
+
                   <p className="text-xs text-richblack-300">
                     {
                         course.courseDescription.length > 50
                       ? `${course.courseDescription.slice(0, 50)}...`
-                      : course.courseDescription}
+                      : course.courseDescription
+                    }
                   </p>
                 </div>
 
               </div>
 
               {/* adding duration */}
-              <div className="w-1/4 px-2 py-3">{course?.totalDuration}</div>
+              <div className="w-1/4 px-2 py-3">{course.timeDuration}</div>
 
               {/* progress vala part */}
               <div className="flex w-1/5 flex-col gap-2 px-2 py-3">
                 <p>Progress: {course.progressPercentage || 0}%</p>
+                                                                  
+
                 <ProgressBar
                   completed={course.progressPercentage || 0}
                   height="8px"
+
+                  // this attribute hides percentage
                   isLabelVisible={false}
                 />
               </div>

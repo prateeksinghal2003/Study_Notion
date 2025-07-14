@@ -71,6 +71,9 @@ const coursesSchema = new mongoose.Schema({
 		type:Date,
 		default:Date.now
 	},
+	totalDuration: {
+		type:String
+	}
 });
 
 // Export the Courses model

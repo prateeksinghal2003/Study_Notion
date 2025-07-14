@@ -2,6 +2,7 @@ import { FaStar } from "react-icons/fa"
 import { RiDeleteBin6Line } from "react-icons/ri"
 import ReactStars from "react-rating-stars-component"
 import { useDispatch, useSelector } from "react-redux"
+import GetAvgRating from '../../../../utils/avgRating'
 
 import { removeFromCart } from "../../../../slices/cartSlice"
 
@@ -11,17 +12,34 @@ export default function RenderCartCourses() {
   const { cart } = useSelector((state) => state.cart)
   const dispatch = useDispatch()
 
+  const count=[];
+
+  for (let i = 0; i < cart.length; i++) {
+   
+      count.push( GetAvgRating(cart[i].ratingAndReviews) );
+    
+  }
+
+   
+
   return (
+
+    // The element will grow to fill the available space in its flex container.
+
+
     <div className="flex flex-1 flex-col">
 
       {
         cart.map((course, indx) => (
+
+        
         <div
           key={course._id}
           className={`flex w-full flex-wrap items-start justify-between gap-6 ${
             indx !== cart.length - 1 && "border-b border-b-richblack-400 pb-6"
           } ${indx !== 0 && "mt-6"} `} >
 
+         
           <div className="flex flex-1 flex-col gap-4 xl:flex-row">
 
             <img
@@ -41,11 +59,21 @@ export default function RenderCartCourses() {
               </p>
 
               <div className="flex items-center gap-2">
-                <span className="text-yellow-5">4.5</span>
+                <span className="text-yellow-5">{count[indx]/course?.ratingAndReviews?.length}</span>
+
+{/* | Attribute                | Description                                                                          |
+| ------------------------ | ------------------------------------------------------------------------------------ |
+| `count={5}`              | Total number of stars to display (typically 5).                                      |
+| `value={...}`            | The current rating value (can be decimal, like `4.5`).                               |
+| `size={20}`              | Size of each star in pixels.                                                         |
+| `edit={false}`           | If `false`, the stars are read-only. If `true`, users can interact and set a rating. |
+| `activeColor="#ffd700"`  | The color of filled (active) stars. `#ffd700` is gold.                               |
+| `emptyIcon={<FaStar />}` | The icon used for empty (unfilled) stars. You’re using FontAwesome's `FaStar`.       |
+| `fullIcon={<FaStar />}`  | The icon used for filled stars. Also using `FaStar` here.                            | */}
 
                 <ReactStars
                   count={5}
-                  value={course?.ratingAndReviews?.length}
+                  value={count[indx]/course?.ratingAndReviews?.length}
                   size={20}
                   edit={false}
                   activeColor="#ffd700"  
@@ -73,6 +101,7 @@ export default function RenderCartCourses() {
               <RiDeleteBin6Line />
               <span>Remove</span>
             </button>
+            
             <p className="mb-6 text-3xl font-medium text-yellow-100">
               ₹ {course?.price}
             </p>

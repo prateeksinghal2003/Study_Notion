@@ -13,7 +13,7 @@ function convertSecondsToDuration(totalSeconds)
     const seconds = Math.floor((totalSeconds % 3600) % 60)
   
     if (hours > 0) {
-      return `${hours}h ${minutes}m`
+      return `${hours}h ${minutes}m ${seconds}`
     } else if (minutes > 0) {
       return `${minutes}m ${seconds}s`
     } else {
