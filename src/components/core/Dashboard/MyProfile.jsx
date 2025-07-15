@@ -73,7 +73,7 @@ export default function MyProfile() {
         >
 
           {/* backend refer karna */}
-          {user?.additionalDetails?.about ?? "Write Something About Yourself"}
+      { user?.additionalDetails?.about ? user.additionalDetails.about : "Write Something About Yourself." }
         </p>
 
       </div>
@@ -101,48 +101,61 @@ export default function MyProfile() {
         </div>
         
         <div className="flex max-w-[500px] justify-between">
+
           <div className="flex flex-col gap-y-5">
+
             <div>
               <p className="mb-2 text-sm text-richblack-600">First Name</p>
               <p className="text-sm font-medium text-richblack-5">
                 {user?.firstName}
               </p>
             </div>
+
             <div>
               <p className="mb-2 text-sm text-richblack-600">Email</p>
               <p className="text-sm font-medium text-richblack-5">
                 {user?.email}
               </p>
             </div>
+
+
             <div>
               <p className="mb-2 text-sm text-richblack-600">Gender</p>
               <p className="text-sm font-medium text-richblack-5">
-                {user?.additionalDetails?.gender ?? "Add Gender"}
+                {user?.additionalDetails?.gender ? user.additionalDetails.gender : "Add Gender"}
               </p>
             </div>
+
           </div>
+
           <div className="flex flex-col gap-y-5">
+
             <div>
               <p className="mb-2 text-sm text-richblack-600">Last Name</p>
               <p className="text-sm font-medium text-richblack-5">
                 {user?.lastName}
               </p>
             </div>
+
             <div>
               <p className="mb-2 text-sm text-richblack-600">Phone Number</p>
               <p className="text-sm font-medium text-richblack-5">
-                {user?.additionalDetails?.contactNumber ?? "Add Contact Number"}
+                {user?.additionalDetails?.contactNumber ?  user.additionalDetails.contactNumber : "Add Contact Number"}
               </p>
             </div>
+
             <div>
               <p className="mb-2 text-sm text-richblack-600">Date Of Birth</p>
               <p className="text-sm font-medium text-richblack-5">
-                {formattedDate(user?.additionalDetails?.dateOfBirth) ??
+                {user?.additionalDetails?.dateOfBirth ?  formattedDate(user.additionalDetails.dateOfBirth) :
                   "Add Date Of Birth"}
               </p>
             </div>
+            
           </div>
+
         </div>
+
       </div>
     </>
   )
