@@ -29,6 +29,10 @@ export default function CourseInformationForm() {
     formState: { errors },
   } = useForm()
 
+
+// Use setValue to programmatically set a form field value.
+// Use getValues to read the current value(s) from the form.
+
   const dispatch = useDispatch()
   const { token } = useSelector((state) => state.auth)
   const { course, editCourse } = useSelector((state) => state.course)
@@ -62,7 +66,7 @@ export default function CourseInformationForm() {
     }
     getCategories()
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [])
 
   const isFormUpdated = () => {
@@ -176,6 +180,7 @@ export default function CourseInformationForm() {
         <label className="text-sm text-richblack-5" htmlFor="courseTitle">
           Course Title <sup className="text-pink-200">*</sup>
         </label>
+
         <input
           id="courseTitle"
           placeholder="Enter Course Title"
@@ -184,7 +189,7 @@ export default function CourseInformationForm() {
         />
         {errors.courseTitle && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
-            Course title is required
+            Course title is required .
           </span>
         )}  
       </div>
@@ -219,6 +224,44 @@ export default function CourseInformationForm() {
           Course Price <sup className="text-pink-200">*</sup>
         </label>
 
+{/* valueAsNumber: true
+This tells React Hook Form to convert the input value into a number, instead of keeping it as a string.
+
+Example:
+User types "123" → stored as number 123 instead of string "123"
+It's useful when you're working with numeric data (like prices or quantities).
+
+3. pattern: { value: /^(0|[1-9]\d*)(\.\d+)?$/ }
+This is a regular expression (regex) used to make sure the input is a valid number format.
+
+Let's break the pattern down:
+
+/^(0|[1-9]\d*)(\.\d+)?$/
+^ — Start of input
+
+(0|[1-9]\d*) — First part of the number:
+0 → allows zero
+[1-9]\d* → any number that does not start with 0, like 1, 12, 500 (prevents 012)
+(\.\d+)? — Optional decimal:
+\. → the decimal point
+\d+ → one or more digits after the decimal
+? → means this whole decimal part is optional
+$ — End of input
+
+What it allows:
+✅ Valid inputs:
+
+0
+5
+123
+12.99
+100.00
+
+❌ Invalid inputs:
+abc (not a number)
+12. (no digits after dot)
+.99 (missing digits before dot)
+012 (starts with zero) */}
 
         {/* isko relative mark kiya so that ruppee icon appears on div */}
         <div className="relative">
@@ -236,6 +279,11 @@ export default function CourseInformationForm() {
           }
             className="form-style w-full !pl-12"
           />
+          {/* Sits inline with other elements (like text or other inline-blocks)
+
+Keeps its own width and height (like a block element)
+
+Can have padding, margin, borders, etc. */}
           <HiOutlineCurrencyRupee className="absolute left-3 top-1/2 inline-block -translate-y-1/2 text-2xl text-richblack-400" />
         </div>
 
@@ -254,7 +302,10 @@ export default function CourseInformationForm() {
           Course Category <sup className="text-pink-200">*</sup>
         </label>
 
-        <select 
+    
+{/* The value attribute in HTML is used to specify the data that will be submitted when a form is sent.*/}
+
+        <select  
           {...register("courseCategory", { required: true })} 
           defaultValue=""
           id="courseCategory"
@@ -310,6 +361,7 @@ export default function CourseInformationForm() {
         <label className="text-sm text-richblack-5" htmlFor="courseBenefits">
           Benefits of the course <sup className="text-pink-200">*</sup>
         </label>
+        
         <textarea
           id="courseBenefits"
           placeholder="Enter benefits of the course"
