@@ -26,13 +26,14 @@ export default function ChipInput({
       setChips(course?.tag)
     }
     register(name, { required: true, validate: (value) => value.length > 0 })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+ 
   }, [])
 
   useEffect(() => {
     setValue(name, chips)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  //  When chips changes, setValue(name, chips) updates that field's value in the form state.
   }, [chips])
+
 
   // Function to handle user input when chips are added
   const handleKeyDown = (event) => {
@@ -55,21 +56,24 @@ export default function ChipInput({
   // Function to handle deletion of a chip
   const handleDeleteChip = (chipIndex) => {
     // Filter the chips array to remove the chip with the given index
-    const newChips = chips.filter((_, index) => index !== chipIndex)
+    const newChips = chips.filter((chip, index) => index !== chipIndex)
     setChips(newChips)
   }
 
   // Render the component
   return (
+
     <div className="flex flex-col space-y-2">
+
       {/* Render the label for the input */}
       <label className="text-sm text-richblack-5" htmlFor={name}>
         {label} <sup className="text-pink-200">*</sup>
       </label>
+
       {/* Render the chips and input */}
       <div className="flex w-full flex-wrap gap-y-2">
         {/* Map over the chips array and render each chip */}
-        {chips.map((chip, index) => (
+        {chips.map( (chip, index) => (
           <div
             key={index}
             className="m-1 flex items-center rounded-full bg-yellow-400 px-2 py-1 text-sm text-richblack-5"
@@ -85,17 +89,22 @@ export default function ChipInput({
               <MdClose className="text-sm" />
             </button>
           </div>
-        ))}
+        ) 
+       )
+      }
         {/* Render the input for adding new chips */}
         <input
           id={name}
           name={name}
           type="text"
           placeholder={placeholder}
+
+          // onKeyDown={handleKeyDown} → This tells React to run the handleKeyDown function whenever a key is pressed while the input is focused.
           onKeyDown={handleKeyDown}
           className="form-style w-full"
         />
       </div>
+
       {/* Render an error message if the input is required and not filled */}
       {errors[name] && (
         <span className="ml-2 text-xs tracking-wide text-pink-200">

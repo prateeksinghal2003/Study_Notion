@@ -22,13 +22,13 @@ export default function RequirementsField({
       setRequirementsList(course?.instructions)
     }
     register(name, { required: true, validate: (value) => value.length > 0 })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+   
   }, []) 
 
   //whenever requirement list is updated
   useEffect(() => {
     setValue(name, requirementsList)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   }, [requirementsList])
 
   const handleAddRequirement = () => {
@@ -41,6 +41,9 @@ export default function RequirementsField({
 
   const handleRemoveRequirement = (index) => {
     const updatedRequirements = [...requirementsList]
+
+    // what does splice do -->starts to remove elements from the given index position 
+    //deleted 1 element starting from the index
     updatedRequirements.splice(index, 1)
     setRequirementsList(updatedRequirements)
 }
@@ -59,6 +62,7 @@ export default function RequirementsField({
           value={requirement}
           onChange={(e) => setRequirement(e.target.value)}
           className="form-style w-full"
+          name={name}
         />
         <button
           type="button"
