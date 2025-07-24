@@ -147,6 +147,39 @@ export default function CourseInformationForm() {
       return
     }
 
+// Arrays (like tags or requirements) must be stringified because FormData doesn't support objects/arrays directly.
+
+// On the server, you'll need to parse the JSON back.
+
+// ✅ 3. File Upload
+// js
+// Copy
+// Edit
+// formData.append("thumbnailImage", data.courseImage)
+// data.courseImage is a File object (from react-dropzone).
+
+// This sends the actual binary content of the image.
+
+// 🔁 Why use FormData?
+// Needed for uploading files (multipart/form-data).
+
+// Automatically sets correct headers and encoding for sending files and text together.
+
+// Backend (e.g., Node, Django, etc.) can parse it easily.
+
+// 🧪 Example submission:
+// js
+// Copy
+// Edit
+// await axios.post("/api/courses", formData, {
+//   headers: {
+//     "Content-Type": "multipart/form-data"
+//   }
+// })
+
+
+
+
     const formData = new FormData()
     formData.append("courseName", data.courseTitle)
     formData.append("courseDescription", data.courseShortDesc)

@@ -20,6 +20,8 @@ export default function Upload({
 }) {
 // const { course } = useSelector((state) => state.course)
   const [selectedFile, setSelectedFile] = useState(null)
+
+  //previewSource will contain base64 encoded string
   const [previewSource, setPreviewSource] = useState(
     viewData ? viewData : editData ? editData : ""
   )
@@ -71,6 +73,62 @@ export default function Upload({
     onDrop,
   })
 
+// onDrop = (acceptedFiles) => {...}
+// This is the callback triggered when a user drops or selects files.
+
+
+// const file = acceptedFiles[0]
+// Only handles the first file (even if multiple are selected).
+
+// acceptedFiles is an array of File objects.
+
+// js
+// Copy
+// Edit
+// if (file) {
+//   previewFile(file)
+//   setSelectedFile(file)
+// }
+// Calls previewFile(file) to generate a preview.
+
+// Stores the selected file in state (selectedFile), probably to send later via form submission.
+
+// 🔹 previewFile = (file) => {...}
+// This function converts the file to a base64 string for preview (typically images or videos).
+
+// js
+// Copy
+// Edit
+// const reader = new FileReader()
+// reader.readAsDataURL(file)
+// readAsDataURL reads the file and encodes it as a base64 string.
+
+// js
+// Copy
+// Edit
+// reader.onloadend = () => {
+//   setPreviewSource(reader.result)
+// }
+// Once loaded, stores the preview string in state (previewSource).
+
+// This is later used as the src for <img /> or <Player /> (video preview).
+
+//reader.result is a property of the FileReader API that contains the result of reading the file.
+
+// ✅ Summary
+// onDrop() handles incoming files.
+
+// previewFile() creates a preview via FileReader.
+
+// This gives you an instant preview before uploading.
+
+// Let me know if you want to handle multiple files or show upload progress.
+
+
+
+//base64 is a way to encode binary data (like files or images) into a text string
+
+
   const onDrop = (acceptedFiles) => {
     const file = acceptedFiles[0]
     if (file) {
@@ -78,6 +136,31 @@ export default function Upload({
       setSelectedFile(file)
     }
   }
+
+//    file comes from acceptedFiles[0] in onDrop
+// This is a JavaScript File object, representing the uploaded file.
+
+// ✅ A File object contains metadata and binary content. Here's what it includes:
+// 🔹 Example:
+// js
+// Copy
+// Edit
+// const file = acceptedFiles[0];
+// console.log(file);
+// You’ll see something like this in the console:
+
+// js
+// Copy
+// Edit
+// File {
+//   name: "image.png",
+//   lastModified: 1723948200000,
+//   lastModifiedDate: Mon Jul 22 2025,
+//   size: 349820, // in bytes
+//   type: "image/png",
+//   webkitRelativePath: "",
+//   ...
+// }
 
   const previewFile = (file) => {
     const reader = new FileReader()
@@ -171,6 +254,7 @@ It's still functional because clicks on the parent <div> (via getRootProps()) de
               file
             </p>
 
+            {/* list-disc-->adds bullets */}
             <ul className="mt-10 flex list-disc justify-between space-x-12 text-center  text-xs text-richblack-200">
               <li>Aspect ratio 16:9</li>
               <li>Recommended size 1024x576</li>

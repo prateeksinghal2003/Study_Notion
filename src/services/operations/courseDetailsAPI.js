@@ -87,6 +87,62 @@ export const fetchCourseCategories = async () => {
 }
 
 // add the course details
+// Content-Type": "multipart/form-data"
+// This tells the server:
+
+// “I'm sending form data that may include files (like images), not just plain JSON.”
+
+// It's required when you're using FormData (especially for file uploads), so the server can parse the data correctly.
+
+// 🔹 Authorization: Bearer ${token}
+// This sends your authentication token with the request:
+
+// “I'm an authenticated user. Here’s my Bearer token to prove it.”
+
+// The server uses this token (usually a JWT) to verify the user's identity and permissions.
+
+// 🧾 Together:
+// js
+// Copy
+// Edit
+// headers: {
+//   "Content-Type": "multipart/form-data",
+//   Authorization: `Bearer ${token}`
+// }
+// This tells the backend:
+
+// You're sending file + text form data
+
+// You're an authorized user
+
+// Let me know if you want to add error handling or token refresh logic too.
+
+
+
+
+
+
+
+
+// You said:
+// what are headers??
+
+
+// ChatGPT said:
+// ✅ What are headers in HTTP?
+// Headers are key-value pairs sent with every HTTP request and response. They provide extra information about the request or response.
+
+// Think of them as the metadata for the communication between client and server.
+
+// 📦 Example of request headers:
+
+// | Header          | Purpose                                                                      |
+// | --------------- | ---------------------------------------------------------------------------- |
+// | `Content-Type`  | Tells the server what kind of data is being sent (`json`, `form-data`, etc.) |
+// | `Authorization` | Sends an access token for authentication (`Bearer <token>`)                  |
+// | `Accept`        | Tells the server what response format you expect (e.g., `application/json`)  |
+// | `User-Agent`    | Info about the browser/app making the request                                |
+
 export const addCourseDetails = async (data, token) => {
   let result = null
   const toastId = toast.loading("Loading...")
