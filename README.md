@@ -1,30 +1,65 @@
-# React & Tailwind CSS Starter Pack
+# StudyNotion – EdTech Platform
 
-This is a starter pack for creating React projects with Tailwind CSS configured. It uses React version **18.2** and Tailwind CSS version **3.2**.
+StudyNotion is a comprehensive EdTech platform designed to provide a seamless experience for both students and instructors. 
+It features a user-friendly interface, dynamic course management, and progress tracking capabilities.
+
+## User Roles & Features
+Student Features
+Sign in as a student.
+
+Access a catalog of courses available to study.
+
+Compare courses using ratings and reviews.
+
+Enroll in multiple courses.
+
+After logging in, students can:
+
+View the list of purchased courses.
+
+Access course contents.
+
+Track their course progress.
+
+🔹 Instructor Features
+Sign in as an instructor.
+
+Publish new courses to the platform.
+
+Edit or update existing courses at any time.
+
+Access an instructor dashboard to:
+
+View all published courses.
+
+Analyze which courses are best-selling.
 
 ## Usage
 
-This starter pack includes a basic setup for using **Tailwind CSS with React**. To start building your own components and styles, follow these steps:
+To set up the project locally:
 
 1. Clone the repository to your local machine.
     ```sh
-    git clone https://github.com/thepranaygupta/react-tailwind-css-starter-pack.git
+   git clone https://github.com/prateeksinghal2003/StudyNotion.git
     ```
 
-1. Install the required packages.
+1. Navigate to the project directory
     ```sh
-    cd react-tailwind-css-starter-pack
+   cd StudyNotion
+    ```
+
+1. Install dependencies
+    ```sh
     npm install
     ```
+1. Start the development server
+  ```sh
+  npm start
+   ```
 
-1. Start the development server.
-    ```sh
-    npm start
-    ```
-1. Open the project in your browser at [`http://localhost:3000`](http://localhost:3000) to view your project.
-1. Create your React components and add your styles using Tailwind classes. You can also create new CSS files and import them into your components.
+ Open your browser and go to http://localhost:3000
 
-The project is set up to use `postcss-cli` to process your CSS files. You can add your own `tailwind.config.js` file to customize your Tailwind setup.
+
 
 ## Contributing
 
