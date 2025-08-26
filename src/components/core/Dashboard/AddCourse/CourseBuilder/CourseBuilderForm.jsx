@@ -93,6 +93,9 @@ export default function CourseBuilderForm() {
     } 
     
     //at least on subsection in any section
+    //Yes, .some() is a JavaScript array method that checks if 
+    // at least one element in the array satisfies the given condition. It returns true or false.
+    
     if (
       course.courseContent.some((section) => section.subSection.length === 0)
     ) {
@@ -120,9 +123,11 @@ const goBack = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 
         <div className="flex flex-col space-y-2">
+
           <label className="text-sm text-richblack-5" htmlFor="sectionName">
             Section Name <sup className="text-pink-200">*</sup>
           </label>
+
           <input
             id="sectionName"
             disabled={loading}

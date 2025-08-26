@@ -31,9 +31,9 @@ export default function NestedView({ handleChangeEditSectionName }) {
   const handleDeleleSection = async (sectionId) => {
     const result = await deleteSection({
       sectionId,
-      courseId: course._id,
+      courseId: course._id},
       token,                                        
-    })
+    )
     if (result) {
       dispatch(setCourse(result))
     }
@@ -53,7 +53,15 @@ export default function NestedView({ handleChangeEditSectionName }) {
     }
     setConfirmationModal(null)
   }
+// The <details> and <summary> elements are HTML5 tags used to create collapsible content.
 
+// <details>: Acts as a container for content that can be expanded/collapsed.
+
+// open attribute → makes it expanded by default.
+
+// key={section._id} → that looks like React/JSX, where key is used for React list rendering (not an actual HTML attribute).
+
+// <summary>: Defines the heading/label that the user clicks to expand/collapse the <details> block.
   
 
   return (
