@@ -11,7 +11,7 @@ import {
 import { setCourse } from "../../../../../slices/courseSlice"
 import IconBtn from "../../../../common/IconBtn"
 
-//Subsection main video vala portion comment kiya hain
+
 import Upload from "../Upload"
 
 export default function SubSectionModal({
@@ -29,9 +29,7 @@ export default function SubSectionModal({
     getValues,
   } = useForm()                                  
 
-  // console.log("view", view)
-  // console.log("edit", edit)
-  // console.log("add", add)
+ 
 
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
