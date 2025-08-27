@@ -69,10 +69,14 @@ export default function PublishCourse() {
                   
   return (
     <div className="rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6">
+
       <p className="text-2xl font-semibold text-richblack-5">
         Publish Settings
       </p>
+
       <form onSubmit={handleSubmit(onSubmit)}>
+      
+    {/* inline-flex → makes it an inline-level flex container, so it flows with surrounding text instead of taking up the full width. */}
         {/* Checkbox */}
         <div className="my-6 mb-8">
           <label htmlFor="public" className="inline-flex items-center text-lg">
@@ -88,6 +92,7 @@ export default function PublishCourse() {
           </label>
         </div>
 
+          {/* ml-auto pushes to right as far as possible */}
         {/* Next Prev Button */}
         <div className="ml-auto flex max-w-max items-center gap-x-4">
           <button

@@ -9,6 +9,81 @@ import {
 import { setCourse, setEditCourse } from "../../../../slices/courseSlice"
 import RenderSteps from "../AddCourse/RenderSteps"
 
+// In React Router (or generally in web routing), params = the dynamic parts of the URL.
+
+// They’re like placeholders you define in the route path with a : prefix.
+
+// Example route definition:
+// <Route path="/users/:userId/posts/:postId" element={<PostPage />} />
+
+// If user visits:
+// /users/42/posts/99
+
+// Then:
+// useParams(); 
+// // 👉 { userId: "42", postId: "99" }
+
+
+// So:
+
+// userId and postId are route params.
+
+// Values always come as strings.
+
+// 🔹 Params ≠ query params.
+
+// Route params: /users/:id → /users/42 → useParams()
+
+// Query params: /users?id=42 → useSearchParams()
+
+
+
+// Perfect 👍 let’s break it down in React Router terms:
+
+// 1. Route Params (via useParams)
+
+// Dynamic segments in the path.
+
+// <Route path="/users/:id" element={<UserPage />} />
+
+
+// URL:
+
+// /users/42
+
+
+// Code:
+
+// const { id } = useParams();  
+// // 👉 { id: "42" }
+
+
+// Defined in the route path.
+
+// Always string.
+
+// Good for IDs, slugs, etc.
+
+// 2. Query Params (via useSearchParams)
+
+// Extra info after ? in the URL.
+
+// URL:
+
+// /users?id=42&tab=posts
+
+
+// Code:
+
+// const [searchParams] = useSearchParams();
+// searchParams.get("id");   // "42"
+// searchParams.get("tab");  // "posts"
+
+
+// Optional parameters.
+
+// Good for filters, sorting, pagination.
+
 export default function EditCourse() {
   const dispatch = useDispatch()
   const { courseId } = useParams()
@@ -31,6 +106,8 @@ export default function EditCourse() {
    )()
   }, [])
 
+
+  // flex-1: It expands the element to take up all available space in a flex container.
 
   if (loading) {
     return (
@@ -56,6 +133,7 @@ export default function EditCourse() {
           </p>
         )}
       </div>
+
     </div>
   )
 }
