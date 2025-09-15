@@ -21,10 +21,23 @@ import { createSlice } from "@reduxjs/toolkit";
 // If yes, convert it from string to object and use it.
 // If no, set token to null.
 
+const getTokenFromLocalStorage = () => {
+  const rawToken = localStorage.getItem("token");
+  if (!rawToken) {
+    return null;
+  }
+  try {
+    return JSON.parse(rawToken);
+  } catch (_error) {
+    // Fallback if token was stored without JSON.stringify
+    return rawToken;
+  }
+};
+
 const initialState = {
   signupData: null,
   loading: false,
-  token: localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")) : null,
+  token: getTokenFromLocalStorage(),
 };
 
 
